@@ -11,7 +11,7 @@ env.credentials_id = 'chandu'
 env.jenkins_server_url = 'https://18.139.221.140'
 env.jenkins_node_custom_workspace_path = "${JENKINS_HOME}/workspace"
 env.jenkins_node_label = 'master'
-env.terraform_version = '0.11.10'
+env.terraform_version = '0.11.3'
 /*def notifySlack(text, channel, attachments) {
     def payload = JsonOutput.toJson([text: text,
         channel: channel,
@@ -35,7 +35,7 @@ credentialsId: "$credentials_id" ,
 url: "$git_url"
 }
 }
-stage('install_deps') {
+/*stage('install_deps') {
 steps {
 sh "sudo apt install wget zip python-pip -y"
 sh "cd /tmp"
@@ -57,7 +57,7 @@ steps {
   notifySlack("Do you approve deployment? $jenkins_server_url/jenkins/job/$JOB_NAME", notification_channel, [])
 input 'Do you approve deployment?'
 }
-}*/
+}
 stage('apply_changes') {
 steps {
 //sh "echo 'yes' | sudo terraform apply $jenkins_node_custom_workspace_path/workspace"
@@ -70,4 +70,4 @@ post {
   always { 
     cleanWs()
    }
-  }
+  }*/
