@@ -58,7 +58,7 @@ module "sbx_role" {
 
   name        = "${var.name}-sg"
   description = "Security group for sbx EC2 instance"
-  vpc_id      = "${data.terraform_remote_state.sbx-vpc.vpc_id}"
+  vpc_id      = "vpc-4d9fac2a"
   tags        = "${var.tags}"
     
     
