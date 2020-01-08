@@ -10,19 +10,22 @@ env.jenkins_node_label = 'master'
 env.terraform_version = '0.11.3'
 
 pipeline {
-agent {
-node {
-customWorkspace "$jenkins_node_custom_workspace_path"
-label "$jenkins_node_label"
-} 
-}
+agent any
+
 stages {
+    
 stage('fetch_latest_code') {
 steps {
 git branch: "$git_branch" ,
 credentialsId: "$credentials_id" ,
 url: "$git_url"
 }
+  }
 }
-}
+stage('install_deps') {
+steps {
+            script{tool name: 'terraform.0.11.3' , type: 'terraform' }
+               }
+            }
+
 }
