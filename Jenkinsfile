@@ -30,7 +30,7 @@ steps {
  def tfHome = tool name: 'terraform.0.11.3'
  env.PATH = "${tfHome}:${env.PATH}"
  }
- sh ‘terraform — version’
+ sh 'terraform -version'
                }
             }
 }
