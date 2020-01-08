@@ -16,11 +16,13 @@ stages {
     
 stage('fetch_latest_code') {
 steps {
-git branch: "$git_branch" ,
-credentialsId: "$credentials_id" ,
-url: "$git_url"
+            // Get Go code from a GitHub repository
+            git credentialsId: 'chandu', url: 'git@github.com:Chandu-Personal/Terraform.git'
+
+
+               }
 }
-  }
+  
 
 stage('install_deps') {
 steps {
