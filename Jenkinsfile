@@ -26,7 +26,11 @@ steps {
 
 stage('install_deps') {
 steps {
-            script{tool name: 'terraform.0.11.3' , type: 'Terraform' }
+            script {
+ def tfHome = tool name: ‘terraform.0.11.3’
+ env.PATH = “${tfHome}:${env.PATH}”
+ }
+ sh ‘terraform — version’
                }
             }
 }
