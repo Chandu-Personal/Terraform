@@ -21,11 +21,11 @@ credentialsId: "$credentials_id" ,
 url: "$git_url"
 }
   }
-}
+
 stage('install_deps') {
 steps {
             script{tool name: 'terraform.0.11.3' , type: 'terraform' }
                }
             }
-
+}
 }
