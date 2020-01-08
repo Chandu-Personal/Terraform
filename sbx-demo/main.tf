@@ -38,7 +38,7 @@ data "terraform_remote_state" "sbx-vpc" {
 
 
 module "sbx_role" {
-    source = "../../../tf-modules/ec2/ec2-iam-role"
+    source = "../tf-modules/ec2/ec2-iam-role"
     name = "sbx_role_windows"
     description = "sbx role for ec2 policy and ec2_ssm_policy_attachment"
     policy_arn = ["arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM"]
@@ -54,7 +54,7 @@ module "sbx_role" {
 
 
  module "sbx_windows_sg" {
-    source = "../../../tf-modules/ec2/security-group"
+    source = "../tf-modules/ec2/security-group"
 
   name        = "${var.name}-sg"
   description = "Security group for sbx EC2 instance"
@@ -105,7 +105,7 @@ module "sbx_role" {
 
 
 module "sbx_windows_instance" {
-   source = "../../../tf-modules/ec2/ec2-instance"
+   source = "../tf-modules/ec2/ec2-instance"
 
     name                      = "${var.name}-windows"
     ami                       = "ami-0e1b9b93a7ae09d48"
