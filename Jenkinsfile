@@ -26,7 +26,7 @@ steps {
 
 stage('install_deps') {
 steps {
-            script{tool name: 'terraform.0.11.3' , type: 'terraform' }
+            script{tool name: 'terraform.0.11.3' , type: 'Terraform' }
                }
             }
 }
